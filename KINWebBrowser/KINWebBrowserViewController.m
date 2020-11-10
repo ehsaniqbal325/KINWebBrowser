@@ -180,6 +180,20 @@ static void *KINWebBrowserContext = &KINWebBrowserContext;
     dispatch_async(dispatch_get_main_queue(), ^{
              // do work here
 //        [TSMessage showNotificationInViewController:self title:@"" subtitle:@"Keine Internetverbindung." type:TSMessageNotificationTypeError duration:1000];
+        UIWindow* topWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        topWindow.rootViewController = [UIViewController new];
+        topWindow.windowLevel = UIWindowLevelAlert + 1;
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@""
+                                                                       message:@"Keine Internetverbindung."
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            topWindow.hidden = YES; // if you want to hide the topwindow then use this
+        }];
+
+        
+        [alert addAction:okAction];
+        [topWindow makeKeyAndVisible];
+        [topWindow.rootViewController presentViewController:alert animated:YES completion:nil];
              
          });
     }
