@@ -33,6 +33,7 @@
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 
+
 @class KINWebBrowserViewController;
 
 /*
@@ -43,7 +44,7 @@
 @interface UINavigationController(KINWebBrowser)
 
 // Returns rootViewController casted as KINWebBrowserViewController
-- (KINWebBrowserViewController *)rootWebBrowser;   
+- (KINWebBrowserViewController *)rootWebBrowser;
 
 @end
 
@@ -64,7 +65,7 @@
  For convenience, two sets of static initializers are available.
  
  */
-@interface KINWebBrowserViewController : UIViewController <WKNavigationDelegate, WKUIDelegate, UIWebViewDelegate>
+@interface KINWebBrowserViewController : UIViewController <WKNavigationDelegate, WKUIDelegate>
 
 #pragma mark - Public Properties
 
@@ -76,7 +77,6 @@
 // The web views
 // Depending on the version of iOS, one of these will be set
 @property (nonatomic, strong) WKWebView *wkWebView;
-@property (nonatomic, strong) UIWebView *uiWebView;
 
 - (id)initWithConfiguration:(WKWebViewConfiguration *)configuration NS_AVAILABLE_IOS(8_0);
 
@@ -111,6 +111,10 @@
 @property (nonatomic, assign) BOOL actionButtonHidden;
 @property (nonatomic, assign) BOOL showsURLInNavigationBar;
 @property (nonatomic, assign) BOOL showsPageTitleInNavigationBar;
+@property (nonatomic, assign) BOOL hidesToolbarAtBottom;
+@property (nonatomic, assign) BOOL useOriginalScallingFrame;
+@property (nonatomic, assign) BOOL NoInternet;
+
 
 //Allow for custom activities in the browser by populating this optional array
 @property (nonatomic, strong) NSArray *customActivityItems;
