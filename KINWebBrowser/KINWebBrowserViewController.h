@@ -43,7 +43,7 @@
 @interface UINavigationController(KINWebBrowser)
 
 // Returns rootViewController casted as KINWebBrowserViewController
-- (KINWebBrowserViewController *)rootWebBrowser;
+- (KINWebBrowserViewController *)rootWebBrowser;   
 
 @end
 
